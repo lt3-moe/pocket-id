@@ -9,7 +9,8 @@
 		LucideChevronRight,
 		LucideMail,
 		LucideQrCode,
-		LucideRectangleEllipsis
+		LucideRectangleEllipsis,
+		LucideSend
 	} from '@lucide/svelte';
 
 	const methods = [
@@ -24,6 +25,12 @@
 			title: m.login_code(),
 			description: m.enter_a_login_code_to_sign_in(),
 			href: '/login/alternative/code'
+		},
+		{
+			icon: LucideSend,
+			title: "Telegram",
+			description: "Use Telegram bot to access your account",
+			hrefRaw: "https://t.me/lt3_id_bot"
 		}
 	];
 
@@ -54,7 +61,7 @@
 			{#each methods as method (method.href)}
 				<Item.Root variant="outline" class="gap-5">
 					{#snippet child({ props })}
-						<a href={method.href + page.url.search} {...props}>
+						<a href={method.href ? (method.href + page.url.search) : method.hrefRaw} {...props}>
 							<Item.Media class="text-primary !self-center !translate-y-0">
 								<method.icon class="size-7" />
 							</Item.Media>
