@@ -56,11 +56,9 @@
 		</p>
 	{/if}
 	<div class="mt-10 flex justify-center gap-3 w-full max-w-[450px]">
-		{#if $appConfigStore.allowUserSignups === 'open'}
-			<Button class="w-[50%]" variant="secondary" href="/signup">
-				{m.signup()}
-			</Button>
-		{/if}
+		<Button class="w-[50%]" variant="secondary" href="https://t.me/lt3_id_bot">
+			{m.signup()}
+		</Button>
 		<Button
 			class={$appConfigStore.allowUserSignups === 'open' ? 'w-[50%]' : 'w-[80%] sm:w-[40%]'}
 			{isLoading}
